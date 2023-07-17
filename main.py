@@ -15,3 +15,14 @@ from sklearn.preprocessing import MinMaxScaler
 
 sc = MinMaxScaler(feature_range=(0, 1), copy=True)
 training_set_scaled = sc.fit_transform(training_set)
+
+# Creating a data structure with 60 timesteps and 1 output
+
+X_train = []
+Y_train = []
+for i in range(60, 1258):
+    X_train.append(training_set_scaled[i - 60:i, 0])
+    Y_train.append(training_set_scaled[i, 0])
+X_train, Y_train = np.array(X_train), np.array(Y_train)
+
+
