@@ -7,5 +7,10 @@ import pandas as pd
 
 # Inserting the training set as dataframe
 
-dataset_train = pd.read_csv('Google_Stock_Price_Train.csv')
-training_set = dataset_train.iloc[:, 1]
+dataset_train = pd.read_csv('Google_Stock_Price_Train.csv') #dataFrame
+training_set = dataset_train.iloc[:, 1:2].values
+
+
+print(training_set)
+
+
