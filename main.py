@@ -27,3 +27,11 @@ X_train, Y_train = np.array(X_train), np.array(Y_train)
 
 # Reshaping
 X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))
+
+# build RNN ( stacked LSTM )
+# Importing the Keras libraries and packages
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import LTSM
+from tensorflow.keras.layers import Droput
