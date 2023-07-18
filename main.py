@@ -26,7 +26,7 @@ for i in range(60, 1258):
 X_train, Y_train = np.array(X_train), np.array(Y_train)
 
 # Reshaping
-X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))
+X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
 
 # build RNN ( stacked LSTM )
 # Importing the Keras libraries and packages
@@ -35,3 +35,19 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
 from keras.layers import Dropout
+
+# Initialising the RNN
+
+regressor = Sequential()
+# adding the LSTM Layer & Droput regularisation
+regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+regressor.add(Dropout(0.2))
+# adding second LSTM
+regressor.add(LSTM(units=50,return_sequences=True,input_shape=(X_train.shape[1], 1)))
+regressor.add(Dropout(0.2))
+# adding third LSTM
+regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+regressor.add(Dropout(0.2))
+# adding fourth LSTM
+regressor.add(LSTM(units=50, return_sequences=False, input_shape=(X_train.shape[1], 1)))
+regressor.add(Dropout(0.2))
