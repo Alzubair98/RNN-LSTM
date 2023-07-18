@@ -39,15 +39,20 @@ from keras.layers import Dropout
 # Initialising the RNN
 
 regressor = Sequential()
-# adding the LSTM Layer & Droput regularisation
+# adding the LSTM Layer & Dropout regularisation
 regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
 regressor.add(Dropout(0.2))
 # adding second LSTM
-regressor.add(LSTM(units=50,return_sequences=True,input_shape=(X_train.shape[1], 1)))
+regressor.add(LSTM(units=50, return_sequences=True))
 regressor.add(Dropout(0.2))
 # adding third LSTM
-regressor.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
+regressor.add(LSTM(units=50, return_sequences=True))
 regressor.add(Dropout(0.2))
 # adding fourth LSTM
-regressor.add(LSTM(units=50, return_sequences=False, input_shape=(X_train.shape[1], 1)))
+regressor.add(LSTM(units=50))
 regressor.add(Dropout(0.2))
+
+# adding the output layer
+regressor.add(Dense(units=1))
+
+regressor.summary()
