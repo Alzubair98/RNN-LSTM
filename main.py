@@ -71,4 +71,9 @@ inputs = dataset_total[len(dataset_total) - len(dataset_test) - 60:].values
 inputs = inputs.reshape(-1,1)
 inputs = sc.transform(inputs)
 
+X_test = []
+for i in range(60, 80):
+    X_test.append(inputs[i-60:i, 0])
+X_test = np.array(X_test)
+
 #Visualising the results
