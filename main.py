@@ -64,4 +64,3 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
 read_stock_price = dataset_test.iloc[:,1:2].values
 
-print("test",read_stock_price)
