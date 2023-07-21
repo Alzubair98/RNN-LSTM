@@ -62,5 +62,7 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
 # read test data
 dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
-read_stock_price = dataset_test.iloc[:,1:2].values
+real_stock_price = dataset_test.iloc[:,1:2].values
+
+#Getting the predicted stock price of 2017
 
