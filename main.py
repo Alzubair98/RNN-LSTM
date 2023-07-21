@@ -58,8 +58,8 @@ regressor.add(Dense(units=1))
 regressor.compile(optimizer='adam', loss='mean_squared_error')
 
 # regressor.summary()
-
-# regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
+# Train the model
+regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
 
 # read test data
 dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
